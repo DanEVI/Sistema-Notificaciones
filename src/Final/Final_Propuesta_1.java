@@ -48,8 +48,8 @@ class Pedido {
 
     public void enviarNotificacion(String mensaje) {
         // Envío real de notificación por correo
-        String remitente = "garcia2020christian@gmail.com";  // Cambia esto por tu correo
-        String password = "teotoaikjylscicy";         // Cambia esto por tu contraseña (o contraseña de aplicación)
+        String remitente = "tecnoretail1@gmail.com";  // Cambia esto por tu correo
+        String password = "jacjhcaxioovcbfy";         // Cambia esto por tu contraseña (o contraseña de aplicación)
 
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
