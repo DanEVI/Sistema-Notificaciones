@@ -1,10 +1,14 @@
 package Final;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Final_Propuesta_1 {
     public static void main(String[] args) {
+        SistemaDeNotificaciones sistema = new SistemaDeNotificaciones();
         Pedido pedido1 = new Pedido("001", "email@cliente.com", "Producto A", 2);
-        pedido1.setEstado(1);  // Estado cambiado a "Pedido Confirmado"
-        System.out.println("Estado del pedido: " + pedido1.getEstado());
+        pedido1.setEstado(2);  // Estado cambiado a "Pedido en Preparación"
+        sistema.agregarPedido(pedido1);
     }
 }
 
@@ -20,7 +24,7 @@ class Pedido {
         this.emailCliente = emailCliente;
         this.producto = producto;
         this.cantidad = cantidad;
-        this.estado = "Registrado";  // Estado inicial
+        this.estado = "Registrado";
     }
 
     public String getIdPedido() {
@@ -49,5 +53,18 @@ class Pedido {
                 this.estado = "Código de estado no válido";
                 break;
         }
+    }
+}
+
+class SistemaDeNotificaciones {
+    private Map<String, Pedido> pedidos;
+
+    public SistemaDeNotificaciones() {
+        pedidos = new HashMap<>();
+    }
+
+    public void agregarPedido(Pedido pedido) {
+        pedidos.put(pedido.getIdPedido(), pedido);
+        System.out.println("Pedido agregado al sistema: " + pedido.getIdPedido() + " con estado: " + pedido.getEstado());
     }
 }
